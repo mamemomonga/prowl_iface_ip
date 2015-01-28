@@ -6,7 +6,7 @@ prowlでIPアドレスを通知する
 	# cd /opt
 	# git clone https://github.com/mamemomonga/prowl_iface_ip
 	# cd prowl_iface_ip
-	# make
+	# make setup
 	# mv config.yaml.example config.yaml
 	# vim config.yaml
 	# IFACE='eth0' ./prowl_iface_ip.pl
