@@ -1,0 +1,5 @@
+appname: 'iface_ipaddr'
+debug: 1
+clock_timeout: 60
+prowl:
+   apikey: 'YOUR_API_KEY'
