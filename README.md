@@ -9,7 +9,7 @@ prowlでIPアドレスを通知する
 	# make setup
 	# mv config.yaml.example config.yaml
 	# vim config.yaml
-	# IFACE='eth0' ./prowl_iface_ip.pl
+	# IFACE='wlan0' ./prowl_iface_ip.pl
 
 # ネットワークデバイスUP時に実行する
 
