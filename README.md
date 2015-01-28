@@ -1,6 +1,6 @@
-prowl$B$G(BIP$B%"%I%l%9$rDLCN$9$k(B
+prowlでIPアドレスを通知する
 
-# $B%;%C%H%"%C%W(B
+# セットアップ
 
 	$ sudo su
 	# cd /opt
@@ -11,25 +11,25 @@ prowl$B$G(BIP$B%"%I%l%9$rDLCN$9$k(B
 	# vim config.yaml
 	# IFACE='eth0' ./prowl_iface_ip.pl
 
-# $B%M%C%H%o!<%/%G%P%$%9(BUP$B;~$K<B9T$9$k(B
+# ネットワークデバイスUP時に実行する
 
-* wpa\_roam$B$G@_Dj$7$?(BWiFi$B%G%P%$%9$NNc$G$9!#(B
-* $B!VG$0U$NL>A0!W$O(B wpa\_supplicant.conf $B$G@_Dj$7$?(B id_str= $B$NCM(B
-* prowl\_notify\_ipaddr.pl$B$N0z?t$K$O9%$-$JJ8;zNs$r@_Dj$G$-$^$9!#>JN,$b2D!#(B
+* wpa\_roamで設定したWiFiデバイスの例です。
+* 「任意の名前」は wpa\_supplicant.conf で設定した id_str= の値
+* prowl\_notify\_ipaddr.plの引数には好きな文字列を設定できます。省略も可。
 
-/etc/network/interface $B$rJT=8$9$k!#(B
+/etc/network/interface を編集する。
 
 	# vim /etc/network/interfaces
 	auto wlan0
 	iface wlan0 inet manual
 	   wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
 
-	iface $BG$0U$NL>A0(B inet dhcp
-	   up /root/sbin/prowl_notify_ipaddr.pl $BG$0U$NL>A0(B
+	iface 任意の名前 inet dhcp
+	   up /root/sbin/prowl_notify_ipaddr.pl 任意の名前
 
-$B%M%C%H%o!<%/$N:F@\B3(B
+ネットワークの再接続
 
 	# /etc/init.d/networking stop
 	# /etc/init.d/networking start
 
-$B$3$l$GDLCN$,$/$l$P@.8y$G$9!#(B
+これで通知がくれば成功です。
